@@ -105,22 +105,25 @@
                                 <ul class="list-unstyled mb-3">
                                     <img :src="'/crowd/Assets/Img/'+c.image" class="col-12 rounded" alt="charity" width="300">
                                 </ul>
-                                <div class="fst-italic" style="color: green;">Goal: {{c.campaign_goal}}</div>
+                                <div class="d-flex justify-content-between">
+                                    <div class="fst-italic" style="color: green;">Donated: {{c.rendered_goal}}</div>
+                                    <div class="fst-italic" style="color: green;">Goal: {{c.campaign_goal}}</div>
+                                </div>
                                 <div class="fst-italic">Name: {{c.name}}</div>
                                 <div class="fst-italic">Location: {{c.location}}</div>
                                 <div class="fst-italic">Title: {{c.campaign_title}}</div>
                                 <div class="fst-italic">Categories: {{c.categories}}</div>
                                 <div class="fst-italic"><small class="text-muted">Campaign Deadline: {{c.campaign_deadline}}</div>
-                                <div :class="currentDateMethod < c.campaign_deadline ? 'text-danger' : 'visually-hidden'">Over Due date</div>
+                                <div :class="currentDateMethod > c.campaign_deadline ? 'text-danger' : 'visually-hidden'">Over Due date</div>
                                 <div class="goal_box">
                                     <div class="d-flex justify-content-between">
                                         <p> <span class="current_count">Goal</span> Raised </p>
-                                        <p> <span class="current_count">{{ (c.rendered_goal / c.campaign_goal) * 100 }}</span>%</p>
+                                        <p> <span class="current_count">{{ Math.round((c.rendered_goal / c.campaign_goal) * 100) }}</span>%</p>
                                     </div>
                                     <progress class="col-12 py-2" :value="c.rendered_goal == null ? 0 : c.rendered_goal" :max="c.campaign_goal == null ? 0 : c.campaign_goal"></progress>
                                 </div>
                                 <div class="d-grid">
-                                    <button class="btn btn-outline-primary mt-2" @click="goTo(c.campaign_id)" :disabled="currentDateMethod < c.campaign_deadline">
+                                    <button class="btn btn-outline-primary mt-2" @click="goTo(c.campaign_id)" :disabled="currentDateMethod > c.campaign_deadline">
                                         Check This Out
                                     </button>
                                 </div>

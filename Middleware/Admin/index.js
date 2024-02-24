@@ -120,6 +120,9 @@ createApp({
                 });
             });
         },
+        changeToInt(number){
+            return Math.round(number);
+        }
     },
     created(){
         this.getAllUser();

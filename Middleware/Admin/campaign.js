@@ -43,6 +43,9 @@ createApp({
         preview(campaign_id) {
             window.location.href = "preview.php?id=" + campaign_id;
         },
+        changeToInt(number){
+            return Math.round(number);
+        }
     },
     created: function () {
         this.getAllCampaigns();

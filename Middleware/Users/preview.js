@@ -422,6 +422,10 @@ createApp({
                     }
                 });
         },
+        changeToInt(number){
+            // return Math.floor(number);
+            return Math.round(number);
+        }
     },
     computed: {
         currentDateMethod() {

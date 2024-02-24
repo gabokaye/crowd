@@ -40,7 +40,7 @@
                                             <div class="goal_box">
                                                 <div class="d-flex justify-content-between">
                                                     <p> <span class="current_count">Goal</span> Raised </p>
-                                                    <p> <span class="current_count">{{ (cam.rendered_goal / cam.campaign_goal) * 100 }}</span>%</p>
+                                                    <p> <span class="current_count">{{ changeToInt((cam.rendered_goal / cam.campaign_goal) * 100) }}</span>%</p>
                                                 </div>
                                                 <div class="d-flex justify-content-between">
                                                     <p> <span class="current_count">Status</span> </p>
@@ -51,7 +51,7 @@
                                                     </p>
                                                 </div>
                                                 Goal php <span class="goal_count">{{cam.campaign_goal}}</span>
-                                                <progress class="col-12 py-2" :value="cam.rendered_goal" :max="cam.campaign_goal"></progress>
+                                                <progress class="col-12 py-2" :value="cam.rendered_goal == null ? 0 : cam.rendered_goal" :max="cam.campaign_goal == null ? 0 : cam.campaign_goal"></progress>
                                                 <div class="d-flex justify-content-center">
                                                     <button class="btn btn-success btn-sm" @click="preview(cam.campaign_id)">Preview Campaign</button>
                                                 </div>

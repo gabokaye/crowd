@@ -238,7 +238,7 @@
         }
 
         private function getTableColumnUsersQuery(){
-            return "SELECT * FROM users";
+            return "SELECT * FROM users ";
         }
 
         private function getTableColumnDonationQuery(){

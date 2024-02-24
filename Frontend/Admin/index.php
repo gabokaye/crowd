@@ -149,7 +149,7 @@
                                                         <td>{{ sh.campaign_title }}</td>
                                                         <td>₱{{ sh.rendered_goal }}</td>
                                                         <td>
-                                                            {{ ( sh.rendered_goal / sh.campaign_goal) * 100 }}%
+                                                            {{ changeToInt(( sh.rendered_goal / sh.campaign_goal) * 100) }}%
                                                             <div class="shadow-none progress bg-soft-primary w-100" style="height: 4px">
                                                                 <div class="progress-bar bg-primary" data-toggle="progress-bar" :style="'width: ' + ( sh.rendered_goal / sh.campaign_goal) * 100 + '%;'" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="200"></div>
                                                             </div>

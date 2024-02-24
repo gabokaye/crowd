@@ -15,7 +15,7 @@ createApp({
             var form = e.currentTarget;
             var data = new FormData(form);
             data.append("METHOD", "getContactUs");
-        
+
             axios.post('../../Backend/Routes/regular/dashboard.php', data)
                 .then(function (r) {
                     if (r.data == 200) {
@@ -102,11 +102,12 @@ createApp({
     computed: {
         currentDateMethod() {
             const currentDate = new Date();
-            const years = currentDate.getFullYear();
-            const months = currentDate.getMonth() + 1;
-            const days = currentDate.getDate();
+            const year = currentDate.getFullYear();
+            const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+            const day = currentDate.getDate().toString().padStart(2, '0');
 
-            return `${years}-${months}-${days}`;
+            const formattedDate = `${year}-${month}-${day}`;
+            return formattedDate;
         },
     },
     created: function () {
